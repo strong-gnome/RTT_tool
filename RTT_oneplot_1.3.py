@@ -20,6 +20,10 @@ Animation is stable and working with no issues.
 Increased font size for the legend on the plots. Now you shouldn't strain your eyes to check legend.
 ZIP function added. Now all CSV and logs are archiving into basic .zip with no compression.
 
+1.3.1
+resources.txt is a critical file for app work. If this file is different from the collected logs, then app won't work.
+We've added resources.txt to archieves as well, so admins shouldn't make resources.txt by themselves.
+All they need is to extract new archieves to folder with .exe file and run the app.
 """
 
 
@@ -119,7 +123,7 @@ class PingTest(object):
             fieldNames.append(url + '_RTT')
             fieldNames.append(url + '_TimeStamp')
 
-        zip_func('rtt_data', 'http_log.log', 'icmp_rtt_data.csv', 'https_rtt_data.csv')
+        zip_func('rtt_data', 'http_log.log', 'icmp_rtt_data.csv', 'https_rtt_data.csv', 'resources.txt')
         with open('icmp_rtt_data.csv', 'w') as csv_file:
             csv_writer = csv.DictWriter(csv_file, fieldnames=fieldNames)
             csv_writer.writeheader()
